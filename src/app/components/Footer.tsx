@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Phone, MapPin } from "lucide-react";
 
 // Headerと同じナビゲーション項目を使用
 const navItems = [
   {
     title: "ホーム",
-    href: "/",
+    href: "/landing",
   },
   {
     title: "施設紹介",
@@ -15,7 +15,7 @@ const navItems = [
   },
   {
     title: "料金",
-    href: "/pricing",
+    href: "/price",
   },
   {
     title: "お問い合わせ",
@@ -48,7 +48,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 pt-4">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/kikkou2022"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-br from-amber-500 to-amber-600 p-2 rounded-full hover:from-amber-400 hover:to-amber-500 transition-all duration-300"
@@ -110,15 +110,14 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-0.5 text-amber-400 flex-shrink-0" />
-                <p>〒100-0001 東京都千代田区大手町2丁目6-2</p>
+                <p>
+                  〒417-0051 <br />
+                  静岡県富士市吉原２丁目 ８番21-2号
+                </p>
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 mt-0.5 text-amber-400 flex-shrink-0" />
-                <p>03-1234-5678</p>
-              </div>
-              <div className="flex items-start">
-                <Mail className="h-5 w-5 mr-3 mt-0.5 text-amber-400 flex-shrink-0" />
-                <p>info@kikkoudo.com</p>
+                <p>0545-67-7400</p>
               </div>
             </div>
           </div>

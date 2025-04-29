@@ -22,7 +22,7 @@ import Image from "next/image";
 const navItems = [
   {
     title: "ホーム",
-    href: "/",
+    href: "/landing",
   },
   {
     title: "施設紹介",
@@ -30,7 +30,7 @@ const navItems = [
   },
   {
     title: "料金",
-    href: "/pricing",
+    href: "/price",
   },
   {
     title: "お問い合わせ",
