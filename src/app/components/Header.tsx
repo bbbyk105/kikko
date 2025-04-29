@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/app/components/ui/button";
 import {
   DropdownMenu,
@@ -32,10 +33,6 @@ const navItems = [
     href: "/pricing",
   },
   {
-    title: "ブログ",
-    href: "/blog",
-  },
-  {
     title: "お問い合わせ",
     href: "/contact",
   },
@@ -53,48 +50,93 @@ const resourcesItems = [
 ];
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState("/");
+
+  // スクロール検出用のエフェクト
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 500); // ヒーローセクション分スクロールした後に背景を表示
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // 現在のパスを取得
+    if (typeof window !== "undefined") {
+      setActiveItem(window.location.pathname);
+    }
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center mr-auto">
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 
+      ${
+        scrolled
+          ? "bg-[#121212]/95 backdrop-blur-md border-b border-amber-500/20"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container h-16 flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ロゴエリア */}
+        <div className="flex items-center">
           <Link
             href="/"
-            className="relative z-[60] flex items-center space-x-2"
+            className="relative z-[60] flex items-center transition-transform hover:scale-105"
           >
             <Image
               src="/images/logo.png"
               alt="Company Logo"
               width={120}
               height={40}
+              className="transition-all duration-300"
               priority
-              className="transition-transform duration-300 hover:scale-105"
             />
           </Link>
         </div>
 
-        {/* ナビゲーション - 中央に配置 */}
-        <nav className="hidden md:flex items-center justify-center gap-6 mx-auto">
+        {/* デスクトップナビゲーション */}
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-all duration-200 relative
+                ${
+                  activeItem === item.href
+                    ? "text-amber-400"
+                    : "text-gray-200 hover:text-amber-400"
+                }
+                group`}
             >
               {item.title}
+              <span
+                className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300
+                ${activeItem === item.href ? "w-full" : "group-hover:w-full"}`}
+              ></span>
             </Link>
           ))}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="link"
-                className="text-sm font-medium text-muted-foreground p-0"
+                className="text-sm font-medium text-gray-200 p-0 hover:text-amber-400 flex items-center gap-1 group"
               >
                 施設情報
+                <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent
+              align="end"
+              className="bg-[#121212]/95 backdrop-blur-md border-amber-500/20 rounded-md shadow-lg shadow-amber-500/5 mt-2 p-1"
+            >
               {resourcesItems.map((item) => (
-                <DropdownMenuItem key={item.href} asChild>
+                <DropdownMenuItem
+                  key={item.href}
+                  asChild
+                  className="text-gray-200 hover:text-amber-400 focus:text-amber-400 focus:bg-[#1A1A1A] rounded-sm px-4 py-2 my-1"
+                >
                   <Link href={item.href}>{item.title}</Link>
                 </DropdownMenuItem>
               ))}
@@ -102,73 +144,69 @@ export function Header() {
           </DropdownMenu>
         </nav>
 
-        {/* 右側のボタン */}
-        <div className="flex items-center gap-2 md:gap-4 ml-auto">
-          <Button variant="outline" className="hidden md:flex text-sm" asChild>
-            <Link href="/reserve">ご予約</Link>
-          </Button>
-          <Button size="sm" className="hidden sm:flex" asChild>
-            <Link href="/member">会員登録</Link>
-          </Button>
-          <Button size="sm" className="sm:hidden" asChild>
-            <Link href="/member">会員登録</Link>
-          </Button>
-
-          {/* モバイルメニューボタン - Sheetを使用 */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-full sm:w-80">
-              <SheetHeader className="pb-6">
-                <SheetTitle className="text-center">メニュー</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col space-y-6">
-                {navItems.map((item) => (
-                  <SheetClose asChild key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-base font-medium text-foreground transition-colors hover:text-primary flex items-center justify-center"
-                    >
-                      {item.title}
-                    </Link>
-                  </SheetClose>
-                ))}
-                <div className="space-y-3">
-                  <p className="text-base font-medium text-foreground text-center">
-                    施設情報
-                  </p>
-                  <div className="space-y-3">
-                    {resourcesItems.map((item) => (
-                      <SheetClose asChild key={item.href}>
-                        <Link
-                          href={item.href}
-                          className="text-base text-muted-foreground transition-colors hover:text-primary flex items-center justify-center"
-                        >
-                          {item.title}
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </div>
+        {/* モバイルメニューボタン */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-gray-200 hover:text-amber-400 hover:bg-[#1A1A1A]/50"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="right"
+            className="w-full sm:w-80 bg-gradient-to-b from-[#121212] to-[#1A1A1A] border-l border-amber-500/20"
+          >
+            <SheetHeader className="pb-6">
+              <SheetTitle className="text-center text-white">
+                <Image
+                  src="/images/logo.png"
+                  alt="Company Logo"
+                  width={120}
+                  height={40}
+                  className="mx-auto"
+                  priority
+                />
+              </SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col space-y-6">
+              {navItems.map((item) => (
+                <SheetClose asChild key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`text-base font-medium transition-colors flex items-center justify-center py-2
+                      ${
+                        activeItem === item.href
+                          ? "text-amber-400 bg-[#1A1A1A]/50 rounded-md"
+                          : "text-white hover:text-amber-400"
+                      }`}
+                  >
+                    {item.title}
+                  </Link>
+                </SheetClose>
+              ))}
+              <div className="space-y-4 pt-2">
+                <p className="text-base font-medium text-white text-center border-t border-[#3A3A3A] pt-6">
+                  施設情報
+                </p>
+                <div className="space-y-4">
+                  {resourcesItems.map((item) => (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="text-base text-gray-300 transition-colors hover:text-amber-400 flex items-center justify-center py-2"
+                      >
+                        {item.title}
+                      </Link>
+                    </SheetClose>
+                  ))}
                 </div>
-                <div className="pt-4 flex flex-col gap-3">
-                  <SheetClose asChild>
-                    <Button variant="outline" className="w-full" asChild>
-                      <Link href="/login">ログイン</Link>
-                    </Button>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Button className="w-full" asChild>
-                      <Link href="/signup">アカウント作成</Link>
-                    </Button>
-                  </SheetClose>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
+              </div>
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );

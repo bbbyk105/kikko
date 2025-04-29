@@ -44,72 +44,96 @@
 }
 
 :root {
+  /* ベース設定 */
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+
+  /* エスプレッソカラーパレット - ライトモード */
+  --background: oklch(0.98 0.003 80); /* stone-50に近い */
+  --foreground: oklch(0.2 0.02 80); /* stone-900に近い */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.2 0.02 80);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.2 0.02 80);
+
+  /* プライマリカラー - stone-600に近い */
+  --primary: oklch(0.57 0.02 80);
+  --primary-foreground: oklch(0.98 0.003 80);
+
+  /* セカンダリカラー - stone-800に近い */
+  --secondary: oklch(0.29 0.02 80);
+  --secondary-foreground: oklch(0.98 0.003 80);
+
+  /* その他カラー */
+  --muted: oklch(0.9 0.02 80); /* stone-200に近い */
+  --muted-foreground: oklch(0.45 0.02 80); /* stone-600に近い */
+  --accent: oklch(0.87 0.02 80); /* stone-200に近い */
+  --accent-foreground: oklch(0.29 0.02 80);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.8 0.02 80); /* stone-300に近い */
+  --input: oklch(0.8 0.02 80);
+  --ring: oklch(0.57 0.02 80); /* primary と同じ */
+
+  /* チャートカラー */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* サイドバーカラー */
+  --sidebar: oklch(0.98 0.003 80);
+  --sidebar-foreground: oklch(0.2 0.02 80);
+  --sidebar-primary: oklch(0.57 0.02 80);
+  --sidebar-primary-foreground: oklch(0.98 0.003 80);
+  --sidebar-accent: oklch(0.87 0.02 80);
+  --sidebar-accent-foreground: oklch(0.29 0.02 80);
+  --sidebar-border: oklch(0.8 0.02 80);
+  --sidebar-ring: oklch(0.57 0.02 80);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
+  /* エスプレッソカラーパレット - ダークモード */
+  --background: oklch(0.25 0.02 80); /* stone-800に近い */
+  --foreground: oklch(0.9 0.02 80); /* stone-200に近い */
+  --card: oklch(0.29 0.02 80); /* stone-700に近い */
+  --card-foreground: oklch(0.9 0.02 80);
+  --popover: oklch(0.29 0.02 80);
+  --popover-foreground: oklch(0.9 0.02 80);
+
+  /* プライマリカラー - 反転 */
+  --primary: oklch(0.9 0.02 80);
+  --primary-foreground: oklch(0.29 0.02 80);
+
+  /* セカンダリカラー */
+  --secondary: oklch(0.35 0.02 80); /* stone-600に近い */
+  --secondary-foreground: oklch(0.9 0.02 80);
+
+  /* その他カラー */
+  --muted: oklch(0.35 0.02 80);
+  --muted-foreground: oklch(0.7 0.02 80);
+  --accent: oklch(0.35 0.02 80);
+  --accent-foreground: oklch(0.9 0.02 80);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --ring: oklch(0.7 0.02 80);
+
+  /* チャートカラー */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+
+  /* サイドバーカラー */
+  --sidebar: oklch(0.29 0.02 80);
+  --sidebar-foreground: oklch(0.9 0.02 80);
+  --sidebar-primary: oklch(0.7 0.02 80);
+  --sidebar-primary-foreground: oklch(0.9 0.02 80);
+  --sidebar-accent: oklch(0.35 0.02 80);
+  --sidebar-accent-foreground: oklch(0.9 0.02 80);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --sidebar-ring: oklch(0.7 0.02 80);
 }
 
 @layer base {
@@ -119,4 +143,42 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* エスプレッソカラーテーマ - Tailwind用クラス */
+/* 以下のクラスはコワーキングスペースのランディングページで利用 */
+.bg-espresso-primary {
+  background-color: var(--primary);
+}
+
+.bg-espresso-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-espresso-accent {
+  background-color: var(--accent);
+}
+
+.bg-espresso-background {
+  background-color: var(--background);
+}
+
+.text-espresso-primary {
+  color: var(--primary);
+}
+
+.text-espresso-foreground {
+  color: var(--foreground);
+}
+
+.border-espresso-primary {
+  border-color: var(--primary);
+}
+
+.hover\:bg-espresso-secondary:hover {
+  background-color: var(--secondary);
+}
+
+.hover\:bg-espresso-accent:hover {
+  background-color: var(--accent);
 }
