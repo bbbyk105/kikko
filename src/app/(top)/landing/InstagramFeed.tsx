@@ -199,7 +199,7 @@ const InstagramFeed: React.FC<InstagramFeedProps> = ({ postCount = 6 }) => {
 
             <div className="flex justify-center mt-10">
               <a
-                href={`https://www.instagram.com/${INSTAGRAM_USER_ID}`}
+                href="https://www.instagram.com/kikkou2022"
                 target="_blank"
                 rel="noopener noreferrer"
               >
