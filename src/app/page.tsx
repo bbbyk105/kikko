@@ -8,7 +8,7 @@ import CustomerSection from "./(top)/(landing)/CustomerSection";
 import CTASection from "./(top)/(landing)/CTASection";
 import Footer from "./components/Footer";
 import { Header } from "./components/Header";
-import InstagramFeed from "./(top)/landing/InstagramFeed";
+import InstagramFeed from "./(top)/(landing)/InstagramFeed";
 
 export default function Page() {
   useEffect(() => {
