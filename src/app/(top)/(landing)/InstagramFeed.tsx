@@ -1,3 +1,6 @@
+// components/InstagramFeed.tsx
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Instagram } from "lucide-react";
@@ -37,12 +40,6 @@ interface InstagramFeedProps {
   postCount?: number;
 }
 
-// Instagram API設定
-// 注意: 実際の実装では、APIキーなどをクライアントサイドに直接記述せず、
-// サーバーサイドで処理するか、環境変数を使用してください
-const INSTAGRAM_ACCESS_TOKEN = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN;
-const INSTAGRAM_USER_ID = process.env.NEXT_PUBLIC_INSTAGRAM_USER_ID;
-
 const InstagramFeed: React.FC<InstagramFeedProps> = ({ postCount = 6 }) => {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -53,11 +50,8 @@ const InstagramFeed: React.FC<InstagramFeedProps> = ({ postCount = 6 }) => {
       try {
         setLoading(true);
 
-        // Instagram Graph APIを使用して投稿を取得
-        // 注意: 実際の運用ではサーバーサイドでAPIリクエストを行うことを推奨
-        const response = await fetch(
-          `https://graph.instagram.com/${INSTAGRAM_USER_ID}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=${postCount}`
-        );
+        // 内部APIルートを使用してデータを取得
+        const response = await fetch(`/api/instagram?postCount=${postCount}`);
 
         if (!response.ok) {
           throw new Error("Instagram APIからのデータ取得に失敗しました");
