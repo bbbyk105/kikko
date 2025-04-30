@@ -1,6 +1,6 @@
 import React from "react";
 import { ContactHeader } from "./ContactHeader";
-// import { ContactForm } from "./ContactForm";
+import { ContactForm } from "./ContactForm";
 import { ContactInfo } from "./ContactInfo";
 
 const ContactPage = () => {
@@ -18,7 +18,9 @@ const ContactPage = () => {
           <ContactHeader />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            <div className="lg:col-span-2">{/* <ContactForm /> */}</div>
+            <div className="lg:col-span-2">
+              <ContactForm />
+            </div>
             <div>
               <ContactInfo />
             </div>
