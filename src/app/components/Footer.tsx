@@ -7,7 +7,7 @@ import { Instagram, Facebook, Phone, MapPin } from "lucide-react";
 const navItems = [
   {
     title: "ホーム",
-    href: "/landing",
+    href: "/",
   },
   {
     title: "施設紹介",
@@ -43,7 +43,7 @@ const Footer = () => {
           {/* ロゴと説明 */}
           <div className="space-y-4">
             <p className="max-w-xs">
-              快適な空間で創造性を引き出す、東京都千代田区のコワーキングスペース。
+              快適な空間で創造性を引き出す、静岡県富士市のコワーキングスペース。
               プロフェッショナルのためのワークプレイスです。
             </p>
             <div className="flex space-x-4 pt-4">

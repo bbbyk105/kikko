@@ -22,7 +22,7 @@ import Image from "next/image";
 const navItems = [
   {
     title: "ホーム",
-    href: "/landing",
+    href: "/",
   },
   {
     title: "施設紹介",
@@ -81,16 +81,12 @@ export function Header() {
       <div className="container h-16 flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
         {/* ロゴエリア */}
         <div className="flex items-center">
-          <Link
-            href="/"
-            className="relative z-[60] flex items-center transition-transform hover:scale-105"
-          >
+          <Link href="/" className="relative z-[60] flex items-center">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Company Logo"
               width={120}
               height={40}
-              className="transition-all duration-300"
               priority
             />
           </Link>
@@ -162,7 +158,7 @@ export function Header() {
             <SheetHeader className="pb-6">
               <SheetTitle className="text-center text-white">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="Company Logo"
                   width={120}
                   height={40}

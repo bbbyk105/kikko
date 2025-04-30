@@ -21,7 +21,7 @@ export const ContactInfo: React.FC = () => {
       icon: <MapPin className="h-5 w-5" />,
       title: "住所",
       content: "静岡県富士市吉原２丁目 ８番21-2号",
-      link: "https://maps.google.com/?q=静岡県富士市吉原２丁目８番21-2号",
+      link: "https://x.gd/M991i",
       linkText: "GoogleMapで見る",
     },
     {
