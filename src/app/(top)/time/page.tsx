@@ -1,7 +1,7 @@
 import React from "react";
 import { TimeHeader } from "./TimeHeader";
 import { TimeSchedule } from "./TimeSchedule";
-import { TimeNotice } from "./TimeNotice";
+// import { TimeNotice } from "./TimeNotice";
 import { TimeHolidays } from "./TimeHolidays";
 
 const TimePage: React.FC = () => {
@@ -21,7 +21,7 @@ const TimePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2">
               <TimeSchedule />
-              <TimeNotice />
+              {/* <TimeNotice /> */}
             </div>
             <div>
               <TimeHolidays />

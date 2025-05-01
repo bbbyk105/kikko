@@ -22,7 +22,7 @@ export const CompanyInfo: React.FC = () => {
     },
     {
       label: "営業時間",
-      value: "平日：9:00-21:00\n土日祝：9:00-18:00",
+      value: "平日：9:00-18:00\n土日祝：9:00-18:00",
       icon: <Clock className="h-5 w-5" />,
     },
     {

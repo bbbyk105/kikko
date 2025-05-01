@@ -8,8 +8,8 @@ export const TimeSchedule: React.FC = () => {
     {
       id: "weekday",
       title: "平日",
-      hours: "9:00 - 21:00",
-      notes: "最終入館は20:30まで",
+      hours: "9:00 - 18:00",
+      notes: "最終入館は17:30まで",
       icon: <Clock className="h-5 w-5" />,
     },
     {

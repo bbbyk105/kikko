@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const CTASection = () => {
   return (
@@ -26,9 +27,11 @@ const CTASection = () => {
               </p>
             </div>
             <div className="mt-6">
-              <Button className="px-8 py-6 bg-slate-500 text-white hover:bg-slate-400 transition-all duration-300 rounded-md text-base font-medium">
-                お問い合わせはこちら <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/contact">
+                <Button className="px-8 py-6 bg-slate-500 text-white hover:bg-slate-400 transition-all duration-300 rounded-md text-base font-medium">
+                  お問い合わせはこちら <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

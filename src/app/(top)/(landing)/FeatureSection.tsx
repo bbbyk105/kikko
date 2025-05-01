@@ -47,8 +47,7 @@ const FeatureSection: React.FC = () => {
     {
       icon: Clock,
       title: "柔軟な利用時間",
-      description:
-        "平日9時〜20時、土曜10時〜17時の営業時間内でご利用いただけます。",
+      description: "平日・土日祝9時〜18時の営業時間内でご利用いただけます。",
       delay: 500,
     },
     {
