@@ -26,7 +26,7 @@ const navItems = [
   },
   {
     title: "施設紹介",
-    href: "/features",
+    href: "/feature",
   },
   {
     title: "料金",
