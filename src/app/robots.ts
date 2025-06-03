@@ -6,9 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/private/", "/admin/", "/api/"],
+        disallow: ["/private/", "/admin/", "/api/", "/_next/"],
       },
     ],
     sitemap: "https://mtfuji-kikkou.com/sitemap.xml",
+    host: "https://mtfuji-kikkou.com",
   };
 }

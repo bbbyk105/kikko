@@ -1,36 +1,42 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LocalBusinessData } from "./components/SEO/LocalBusinessData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | 橘香堂 - 富士市のコワーキングスペース",
-    default: "橘香堂 | 富士市のコワーキングスペース",
+    template:
+      "%s | 橘香堂 - 富士市吉原のコワーキングスペース・レンタルスタジオ",
+    default:
+      "橘香堂 | 富士市吉原のコワーキングスペース・多目的レンタルスタジオ",
   },
   description:
-    "富士市のコワーキングスペース「橘香堂」。印刷設備完備、住所登録、多目的スペース、コミュニティイベントなど充実した設備とサービスを提供。起業家や中小企業に最適な環境をご用意。",
+    "富士市吉原の多目的レンタルスペース「橘香堂」。コワーキング、ヨガ・ダンススタジオ、ギャラリー展示、マルシェ開催など様々な用途でご利用可能。印刷設備完備、住所登録サービスあり。富士駅から車で5分、駐車場完備。",
   keywords: [
-    "富士市 コワーキング",
-    "富士市 ギャラリー",
-    "富士市 ヨガ",
-    "富士市 ダンス",
-    "富士市 キッズダンス",
-    "富士市 フリーマケット マルシェ",
-    "富士市 貸しスタジオ",
-    "住所登録",
-    "富士山 ワークスペース",
-    "富士市 多目的スペース",
     "富士市 レンタルスペース",
+    "富士市 吉原 スタジオ",
+    "富士市 ヨガスタジオ",
+    "富士市 ダンススタジオ",
+    "富士市 ギャラリー",
+    "富士市 マルシェ会場",
+    "富士市 貸しスタジオ",
+    "富士市 多目的スペース",
+    "吉原 コワーキング",
+    "富士市 住所登録",
+    "富士駅 レンタルスペース",
+    "富士市 イベント会場",
   ],
   authors: [{ name: "橘香堂" }],
   creator: "橘香堂",
@@ -50,14 +56,17 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   openGraph: {
-    title: "橘香堂 | 富士市のコワーキングスペース",
+    title: "橘香堂 | 富士市吉原の多目的レンタルスペース・コワーキングスタジオ",
     description:
-      "富士市で印刷設備完備、住所登録サービス、多目的スペースあり。起業家や中小企業に最適な環境をご提供。",
+      "富士市吉原の多目的レンタルスペース。ヨガ・ダンススタジオ、ギャラリー、マルシェ会場、コワーキングスペースとして利用可能。印刷設備・住所登録サービス完備。",
     url: "https://mtfuji-kikkou.com",
-    siteName: "橘香堂 - 富士市のコワーキングスペース",
+    siteName: "橘香堂 - 富士市吉原のレンタルスペース",
     locale: "ja_JP",
     type: "website",
     images: [
@@ -65,125 +74,18 @@ export const metadata: Metadata = {
         url: "https://mtfuji-kikkou.com/images/slide1.webp",
         width: 1200,
         height: 630,
-        alt: "橘香堂 - 富士市のコワーキングスペース",
+        alt: "橘香堂 - 富士市吉原の多目的レンタルスペース内観",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "橘香堂 | 富士市のコワーキングスペース",
+    title: "橘香堂 | 富士市吉原の多目的レンタルスペース",
     description:
-      "印刷設備完備、住所登録サービス、多目的スペースなど充実した設備とサービスを提供する富士市のコワーキングスペース。",
+      "ヨガ・ダンススタジオ、ギャラリー、マルシェ会場、コワーキングスペースとして利用可能な富士市吉原の多目的レンタルスペース。",
   },
-
-  // JSON-LD構造化データを追加
-  other: {
-    "application/ld+json": JSON.stringify([
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        name: "橘香堂",
-        description:
-          "富士市のコワーキングスペース。印刷設備完備、住所登録サービス、多目的スペース、コミュニティイベントなど充実したサービスを提供。",
-        url: "https://mtfuji-kikkou.com",
-        telephone: "0545-67-7400",
-        email: "", // メールアドレスがあれば追加
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "富士市",
-          addressRegion: "静岡県",
-          postalCode: "417-0051",
-          streetAddress: "吉原2丁目8番21-2号",
-          addressCountry: "JP",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: "35.17303718602143",
-          longitude: "138.68203490723135",
-        },
-        openingHoursSpecification: {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-          ],
-          opens: "09:00",
-          closes: "18:00",
-        },
-        priceRange: "¥550-5500",
-        image: "https://mtfuji-kikkou.com/images/slide1.webp",
-        sameAs: [
-          // SNSやその他のプロフィールURLがあれば追加
-        ],
-        amenityFeature: [
-          {
-            "@type": "LocationFeatureSpecification",
-            name: "印刷設備",
-            value: true,
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            name: "住所登録サービス",
-            value: true,
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            name: "多目的スペース",
-            value: true,
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            name: "Wi-Fi",
-            value: true,
-          },
-        ],
-        makesOffer: [
-          {
-            "@type": "Offer",
-            name: "コワーキングスペース利用",
-            description: "快適に利用できるコワーキングスペース",
-          },
-          {
-            "@type": "Offer",
-            name: "住所登録サービス",
-            description: "事業所として公式に使える住所登録サービス",
-          },
-          {
-            "@type": "Offer",
-            name: "多目的スペースレンタル",
-            description:
-              "会議やイベント、ワークショップに利用できる多目的スペース",
-          },
-        ],
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "橘香堂のコワーキングスペースの営業時間は？",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "平日・土日祝の9時〜18時の営業時間内でご利用いただけます。",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "どのようなサービスが利用できますか？",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "印刷設備、住所登録サービス、多目的スペース、コミュニティイベントなど様々なサービスをご提供しています。",
-            },
-          },
-        ],
-      },
-    ]),
+  verification: {
+    google: "your-google-verification-code", // Google Search Consoleで取得してください
   },
 };
 
@@ -195,11 +97,39 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        {/* グローバルな構造化データ（LocalBusiness, Website, FAQ） */}
+        <LocalBusinessData />
+
+        {/* Analytics - Umami */}
         <script
           defer
           src="https://cloud.umami.is/script.js"
           data-website-id="778abaa9-9a47-4e25-8787-3d4901179e35"
-        ></script>
+        />
+
+        {/* Preconnect for performance optimization */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+        <link rel="dns-prefetch" href="https://cloud.umami.is" />
+
+        {/* Favicon and app icons */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* Preload critical images */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/slide1.webp"
+          type="image/webp"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
