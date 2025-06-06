@@ -4,15 +4,15 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "/slide1.webp",
+    src: "/images/slide1.webp",
     alt: "モダンなコワーキングスペースと快適なワークステーション",
   },
   {
-    src: "/slide2.webp",
+    src: "/images/slide2.webp",
     alt: "ミーティングスペースとコラボレーションエリア",
   },
   {
-    src: "/slide3.webp",
+    src: "/images/slide3.webp",
     alt: "カフェエリアとリラクゼーションゾーン",
   },
 ];
