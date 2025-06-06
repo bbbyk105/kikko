@@ -6,24 +6,10 @@ import CTASection from "./(top)/(landing)/CTASection";
 import Footer from "./components/Footer";
 import { Header } from "./components/Header";
 import InstagramFeed from "./(top)/(landing)/InstagramFeed";
-import { PageStructuredData } from "./components/SEO/PageStructuredData";
 
 export default function Page() {
-  const breadcrumbItems = [
-    { name: "ホーム", url: "https://mtfuji-kikkou.com" },
-  ];
-
   return (
     <>
-      {/* ページ固有の構造化データ */}
-      <PageStructuredData
-        pageType="WebPage"
-        title="橘香堂(worx mt.fuji) - 富士市吉原の多目的レンタルスペース・コワーキングスタジオ"
-        description="富士市吉原の多目的レンタルスペース橘香堂。ヨガ・ダンススタジオ、ギャラリー、マルシェ会場、コワーキングスペースとして様々な用途でご利用いただけます。"
-        url="https://mtfuji-kikkou.com"
-        breadcrumbItems={breadcrumbItems}
-      />
-
       <main
         className="flex flex-col min-h-screen bg-espresso-background text-espresso-foreground"
         role="main"
