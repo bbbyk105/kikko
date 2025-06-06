@@ -1,6 +1,5 @@
 // src/app/(top)/feature/page.tsx
 import { Metadata } from "next";
-import { PageStructuredData } from "@/app/components/SEO/PageStructuredData";
 import { StructuredDataScript } from "@/app/components/StructuredData";
 import { FeaturesHeader } from "./FeaturesHeader";
 import { FeaturesOverview } from "./FeaturesOverView";
@@ -36,11 +35,6 @@ export const metadata: Metadata = {
 };
 
 export default function FeaturesPage() {
-  const breadcrumbItems = [
-    { name: "ホーム", url: "https://mtfuji-kikkou.com" },
-    { name: "施設・サービス紹介", url: "https://mtfuji-kikkou.com/feature" },
-  ];
-
   // コワーキングスペース専用の構造化データ
   const coworkingServiceData = {
     "@context": "https://schema.org",
@@ -134,14 +128,6 @@ export default function FeaturesPage() {
 
   return (
     <>
-      <PageStructuredData
-        pageType="WebPage"
-        title="富士市吉原のコワーキングスペース・多目的レンタルスペース | 橘香堂"
-        description="富士市吉原のコワーキングスペース・多目的レンタルスペース橘香堂。起業家・フリーランス向けコワーキングから、ヨガ・ダンススタジオ、ギャラリー、マルシェ会場まで多目的に利用可能。"
-        url="https://mtfuji-kikkou.com/feature"
-        breadcrumbItems={breadcrumbItems}
-      />
-
       <StructuredDataScript
         data={coworkingServiceData}
         id="coworking-features"
