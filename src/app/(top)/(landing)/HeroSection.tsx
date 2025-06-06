@@ -4,61 +4,33 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "/images/slide1.webp",
+    src: "/slide1.webp",
     alt: "モダンなコワーキングスペースと快適なワークステーション",
   },
   {
-    src: "/images/slide2.webp",
+    src: "/slide2.webp",
     alt: "ミーティングスペースとコラボレーションエリア",
   },
   {
-    src: "/images/slide3.webp",
+    src: "/slide3.webp",
     alt: "カフェエリアとリラクゼーションゾーン",
   },
 ];
 
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
   const [showContent, setShowContent] = useState(false);
   const [firstImageLoaded, setFirstImageLoaded] = useState(false);
 
-  // Amplifyの遅延対策: 即座にコンテンツを表示開始
   useEffect(() => {
-    // 200ms後に最低限のコンテンツを表示
     const showTimer = setTimeout(() => {
       setShowContent(true);
-    }, 200);
-
-    // 画像の非同期プリロード（バックグラウンドで実行）
-    const preloadImages = () => {
-      images.forEach((image, index) => {
-        const img = new window.Image();
-        img.onload = () => {
-          setImagesLoaded((prev) => ({ ...prev, [index]: true }));
-          if (index === 0) {
-            setFirstImageLoaded(true);
-          }
-        };
-        img.onerror = () => {
-          console.warn(`画像読み込み失敗: ${image.src}`);
-          // エラーでもローディング完了として扱う
-          setImagesLoaded((prev) => ({ ...prev, [index]: true }));
-          if (index === 0) {
-            setFirstImageLoaded(true);
-          }
-        };
-        img.src = image.src;
-      });
-    };
-
-    // 即座にプリロード開始
-    preloadImages();
+    }, 200); // コンテンツ表示の遅延
 
     return () => clearTimeout(showTimer);
   }, []);
 
-  // 画像切り替えタイマー（最初の画像ロード後に開始）
+  // 画像切り替えタイマー
   useEffect(() => {
     if (!showContent) return;
 
@@ -75,18 +47,12 @@ const HeroSection = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* 即座に表示される美しい背景グラデーション */}
+      {/* 背景グラデーション */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black" />
 
-      {/* 動的パターン背景（画像がない場合の視覚的補完） */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-y-12 translate-y-32" />
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/3 to-transparent transform -skew-y-12 -translate-y-16" />
-      </div>
-
-      {/* Background Images - Amplify最適化版 */}
+      {/* 背景画像 */}
       {showContent && (
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={currentImage}
             initial={{ opacity: 0 }}
@@ -115,14 +81,13 @@ const HeroSection = () => {
                 }}
               />
             </div>
-
             {/* 適応的オーバーレイ */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/50" />
           </motion.div>
         </AnimatePresence>
       )}
 
-      {/* メインコンテンツ - 即座に表示 */}
+      {/* メインコンテンツ */}
       <div className="relative z-10 flex items-center justify-center w-full h-full">
         <div className="container px-4 md:px-6 text-center md:text-left">
           <motion.div
@@ -162,17 +127,6 @@ const HeroSection = () => {
               aria-label={`スライド ${index + 1} に移動`}
             />
           ))}
-        </div>
-      )}
-
-      {/* 読み込み状況インジケーター（開発時のデバッグ用） */}
-      {process.env.NODE_ENV === "development" && (
-        <div className="absolute top-4 right-4 z-20 bg-black/50 text-white p-2 rounded text-xs">
-          <div>Content: {showContent ? "✓" : "⏳"}</div>
-          <div>First Image: {firstImageLoaded ? "✓" : "⏳"}</div>
-          <div>
-            Images: {Object.keys(imagesLoaded).length}/{images.length}
-          </div>
         </div>
       )}
     </div>
