@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -9,13 +8,7 @@ const CTASection = () => {
     <section className="w-full py-16 md:py-24 bg-gradient-to-br from-[#2C2C2C] to-[#1F1F1F] text-white">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex justify-center">
-          <motion.div
-            className="flex flex-col items-center text-center max-w-3xl space-y-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
+          <div className="flex flex-col items-center text-center max-w-3xl space-y-6">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 ワークスタイルを革新する
@@ -33,7 +26,7 @@ const CTASection = () => {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

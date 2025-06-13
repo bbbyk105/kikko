@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useAtom } from "jotai";
 import { planTabAtom } from "./atoms";
@@ -19,7 +19,7 @@ export const PricePlans: React.FC = () => {
     },
   };
 
-  const fadeInUpVariants = {
+  const fadeInUpVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,

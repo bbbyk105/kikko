@@ -1,21 +1,21 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useAtom } from "jotai";
 import { activeFeatureAtom } from "./atoms";
 
 export const PriceComparison: React.FC = () => {
   const [activeFeature, setActiveFeature] = useAtom(activeFeatureAtom);
 
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const fadeInUpVariants: Variants = {
+    hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.3,
+        delay: 0.1,
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.25, 0.1, 0.25, 1], // ベジエ曲線配列
       },
     },
   };
