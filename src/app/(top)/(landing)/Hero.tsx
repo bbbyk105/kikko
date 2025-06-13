@@ -1,3 +1,4 @@
+// app/(top)/(landing)/Hero.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -47,11 +48,11 @@ export default function Hero() {
             crossFade: true,
           }}
           autoplay={{
-            delay: 5000,
+            delay: 2000, // 2秒に短縮（高速化）
             disableOnInteraction: false,
           }}
           loop
-          speed={1500}
+          speed={800} // トランジション速度を高速化（1500ms → 800ms）
           className="w-full h-full"
         >
           {slides.map((slide) => (
