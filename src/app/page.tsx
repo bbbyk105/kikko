@@ -1,5 +1,5 @@
 "use client";
-import HeroSection from "./(top)/(landing)/HeroSection";
+import Hero from "./(top)/(landing)/Hero";
 import FeatureSection from "./(top)/(landing)/FeatureSection";
 import CustomerSection from "./(top)/(landing)/CustomerSection";
 import CTASection from "./(top)/(landing)/CTASection";
@@ -17,7 +17,7 @@ export default function Page() {
         <Header />
 
         <article>
-          <HeroSection />
+          <Hero />
           <FeatureSection />
           <InstagramFeed />
           <CustomerSection />
